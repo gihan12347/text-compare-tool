@@ -44,52 +44,25 @@ export default function TextCompare() {
         <div className="w-3/5 flex" style={{ height: '60vh' }}>
           <Textarea
             isRequired
-            disableAnimation
-            disableAutosize
-            classNames={{
-              base: "max-w-xs",
-              input: "resize-y min-h-[40px]",
-            }}
+            className="w-full h-full"
             label="Original Text"
             labelPlacement="outside"
             placeholder="Enter your first text"
             value={text1}
             onChange={e => setText1(e.target.value)}
-            variant="bordered"
           />
         </div>
         <div className="w-1/2 flex" style={{ height: '60vh' }}>
           <Textarea
             isRequired
-            disableAnimation
-            disableAutosize
-            classNames={{
-              base: "max-w-xs",
-              input: "resize-y min-h-[40px]",
-            }}
-            labe
+            className="w-full h-full"
             label="Changed Text"
             labelPlacement="outside"
             placeholder="Enter your second text"
             value={text2}
             onChange={e => setText2(e.target.value)}
-            variant="bordered"
           />
         </div>
-        {isVisible && (<div className="flex flex-row gap-4 w-full justify-center mt-12">
-        <div className="w-1/2">
-          <label className="block text-sm font-medium mb-2">Original Text (Compared)</label>
-          <div className="bg-gray-100 h-60 overflow-auto" style={{ whiteSpace: 'pre-wrap' }}>
-            {renderDiffStream(diffMap.text1)}
-          </div>
-        </div>
-        <div className="w-1/2">
-          <label className="block text-sm font-medium mb-2">Changed Text (Compared)</label>
-          <div className="bg-gray-100 h-60 overflow-auto" style={{ whiteSpace: 'pre-wrap' }}>
-            {renderDiffStream(diffMap.text2)}
-          </div>
-        </div>
-      </div>)}  
       </div>
       <div className="flex flex-1 flex-row gap-4 w-full items-stretch justify-center">
         <div className="flex flex-wrap gap-4 items-center justify-center mt-8">
@@ -102,7 +75,21 @@ export default function TextCompare() {
             Clean
           </Button>
         </div>
-      </div> 
+      </div>
+      {isVisible && (<div className="flex flex-row gap-4 w-full justify-center mt-12">
+        <div className="w-1/2">
+          <label className="block text-sm font-medium mb-2">Original Text (Compared)</label>
+          <div className="bg-gray-100 h-60 overflow-auto" style={{ whiteSpace: 'pre-wrap' }}>
+            {renderDiffStream(diffMap.text1)}
+          </div>
+        </div>
+        <div className="w-1/2">
+          <label className="block text-sm font-medium mb-2">Changed Text (Compared)</label>
+          <div className="bg-gray-100 h-60 overflow-auto" style={{ whiteSpace: 'pre-wrap' }}>
+            {renderDiffStream(diffMap.text2)}
+          </div>
+        </div>
+      </div>)}    
     </div>
   );
 }
