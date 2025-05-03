@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* index.css */
+html {
+    height: 100%;
+}
+
+[data-overlay-container="true"] {
+    height: 100%;
+}
+
+textarea {
+    height: 50vh !important;
+    min-height: 50vh !important;
+    max-height: 50vh !important;
+
+ }
+  
+  
