@@ -28,22 +28,12 @@ export default function TextCompare() {
     setIsVisible(false);
   }
 
-  // const renderDiffStream = (diffArray) =>
-  //   diffArray.map((part, index) => {
-  //     let color = part.type === 'insert'
-  //       ? 'green'
-  //       : part.type === 'delete'
-  //       ? 'red'
-  //       : 'black';
-  //     return <span key={index} style={{ color }}>{part.text}</span>;
-  //   });
-
   const renderDiffStream = (diffArray) =>
     diffArray.map((part, index) => {
       let backgroundColor = part.type === 'insert'
-        ? '#d1fae5' // light green
+        ? '#008040' // light green
         : part.type === 'delete'
-        ? '#fee2e2' // light red
+        ? '#FF0000' // light red
         : 'transparent';
       return (
         <span
