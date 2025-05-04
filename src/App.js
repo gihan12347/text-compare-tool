@@ -28,39 +28,63 @@ export default function TextCompare() {
     setIsVisible(false);
   }
 
+  // const renderDiffStream = (diffArray) =>
+  //   diffArray.map((part, index) => {
+  //     let color = part.type === 'insert'
+  //       ? 'green'
+  //       : part.type === 'delete'
+  //       ? 'red'
+  //       : 'black';
+  //     return <span key={index} style={{ color }}>{part.text}</span>;
+  //   });
+
   const renderDiffStream = (diffArray) =>
     diffArray.map((part, index) => {
-      let color = part.type === 'insert'
-        ? 'green'
+      let backgroundColor = part.type === 'insert'
+        ? '#d1fae5' // light green
         : part.type === 'delete'
-        ? 'red'
-        : 'black';
-      return <span key={index} style={{ color }}>{part.text}</span>;
+        ? '#fee2e2' // light red
+        : 'transparent';
+      return (
+        <span
+          key={index}
+          style={{
+            color: 'black',
+            backgroundColor,
+          }}
+        >
+          {part.text}
+        </span>
+      );
     });
 
   return (
-    <div className="flex flex-col min-h-screen w-screen p-8">
+    <div className="flex flex-col min-h-screen w-screen p-8 m-12">
       <div className="flex flex-1 flex-row gap-4 w-full items-stretch justify-center">
-        <div className="w-3/5 flex" style={{ height: '60vh' }}>
+        <div className="flex w-full" style={{ height: '60vh' }}>
           <Textarea
             isRequired
+            disableAnimation
+            disableAutosize
             className="w-full h-full"
             label="Original Text"
-            labelPlacement="outside"
             placeholder="Enter your first text"
             value={text1}
             onChange={e => setText1(e.target.value)}
+            variant="bordered"
           />
         </div>
-        <div className="w-1/2 flex" style={{ height: '60vh' }}>
+        <div className="flex w-full" style={{ height: '60vh' }}>
           <Textarea
             isRequired
+            disableAnimation
+            disableAutosize
             className="w-full h-full"
             label="Changed Text"
-            labelPlacement="outside"
             placeholder="Enter your second text"
             value={text2}
             onChange={e => setText2(e.target.value)}
+            variant="bordered"
           />
         </div>
       </div>
