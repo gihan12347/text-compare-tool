@@ -10,7 +10,7 @@ export default function AlertBanner({ title, color }) {
           title={title || "Both text fields are required..."}
           variant="faded"
           classNames={{
-            base: "py-1 text-sm", // Reduces the padding and font size
+            base: "py-1 text-sm", 
             title: "text-sm font-medium",
           }}
         />
