@@ -1,17 +1,18 @@
-
-const {heroui} = require("@heroui/react");
+const { heroui } = require("@heroui/react");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
-// Exports the Tailwind configuration object.
 module.exports = {
-  // Tells Tailwind where to look for class names to keep
   content: [
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}" // <-- Make sure your app source is scanned too!
   ],
   theme: {
-    colors: {
-      // foreground: '#ffffff', // your text color
-      // background: '#121212', // your dark background
+    extend: {
+      colors: {
+        // Add your custom colors here if needed
+        // This preserves Tailwind's defaults
+      },
     },
   },
   darkMode: "class",
