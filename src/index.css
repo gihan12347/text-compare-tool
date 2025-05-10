@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 /* index.css */
-html {
-    height: 100%;
-}
+html, body {
+    overflow-x: hidden;
+  }
 
 [data-overlay-container="true"] {
     height: 100%;

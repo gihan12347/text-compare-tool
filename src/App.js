@@ -13,10 +13,31 @@ export default function TextCompare() {
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [diffMap, setDiffMap] = useState({ text1: [], text2: [] });
   const bottomRef = useRef(null);
+  const resultRef = useRef(null);
+
+  const textAreaRef1 = useRef(null);
+  const textAreaRef2 = useRef(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+    if (isVisible && resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [isVisible]);
+
+  const resizeTextareas = () => {
+    const resize = (el) => {
+      if (el) {
+        el.style.height = 'auto';
+        el.style.height = el.scrollHeight + 'px';
+      }
+    };
+    resize(textAreaRef1.current);
+    resize(textAreaRef2.current);
+  };
+
+  useEffect(() => {
+    resizeTextareas();
+  }, [text1, text2]);
 
   const compareTexts = async () => {
     if (!text1.trim() || !text2.trim()) {
@@ -36,7 +57,7 @@ export default function TextCompare() {
     }
   };
 
-  const cleanText = async () => {
+  const cleanText = () => {
     setText1("");
     setText2("");
     setIsVisible(false);
@@ -53,10 +74,7 @@ export default function TextCompare() {
       return (
         <span
           key={index}
-          style={{
-            color: 'black',
-            backgroundColor,
-          }}
+          style={{ color: 'black', backgroundColor }}
         >
           {part.text}
         </span>
@@ -66,68 +84,67 @@ export default function TextCompare() {
   return (
     <>
       <NavigationBar />
+      <div className="flex flex-col min-h-screen pt-2 px-3 md:px-5 py-4 bg-white">
+        {isAlertVisible && (
+          <AlertBanner title="Both text fields are required.....!" color="warning" />
+        )}
 
-      <div className="flex flex-col min-h-screen">
-        <div className="flex-grow px-3 md:px-5 py-8">
-          {isAlertVisible && (
-            <AlertBanner title="Both text fields are required.....!" color="warning" />
-          )}
-          <div className="flex flex-row gap-4 w-full items-stretch justify-center mb-4">
-            <div className="flex w-full">
-              <Textarea
-                isRequired
-                disableAnimation
-                disableAutosize
-                className="w-full h-60"
-                label="Original Text"
-                placeholder="Enter your first text"
-                value={text1}
-                onChange={e => {
-                  setText1(e.target.value);
-                  setIsAlertVisible(false);
-                }}
-                variant="bordered"
-              />
-            </div>
-            <div className="flex w-full">
-              <Textarea
-                isRequired
-                disableAnimation
-                disableAutosize
-                className="w-full h-60"
-                label="Changed Text"
-                placeholder="Enter your second text"
-                value={text2}
-                onChange={e => {
-                  setText2(e.target.value);
-                  setIsAlertVisible(false);
-                }}
-                variant="bordered"
-              />
-            </div>
+        <div className="flex flex-row gap-4 w-full items-stretch justify-center mb-4">
+          <div className="flex w-full">
+            <Textarea
+              ref={textAreaRef1}
+              isRequired
+              disableAnimation
+              className="w-full whitespace-pre-wrap !border-none !outline-none !ring-0 focus:!outline-none focus:!ring-0 bg-white text-sm min-h-[3rem] p-1"
+              placeholder="Original Text"
+              value={text1}
+              onChange={e => {
+                setText1(e.target.value);
+                setIsAlertVisible(false);
+              }}
+              variant="flat"
+            />
           </div>
-          <div className="flex gap-4 w-full justify-center mb-4">
-            <Button color="success" onClick={compareTexts}>Compare</Button>
-            <Button color="success" onClick={cleanText}>Clean</Button>
+          <div className="flex w-full">
+            <Textarea
+              ref={textAreaRef2}
+              isRequired
+              disableAnimation
+              className="w-full whitespace-pre-wrap !border-none !outline-none !ring-0 focus:!outline-none focus:!ring-0 bg-white text-sm min-h-[3rem] p-1"
+              placeholder="Changed Text"
+              value={text2}
+              onChange={e => {
+                setText2(e.target.value);
+                setIsAlertVisible(false);
+              }}
+              variant="flat"
+            />
           </div>
-          {isVisible && (
-            <div className="flex flex-row gap-4 w-full justify-center mt-8">
-              <div className="w-1/2">
-                <label className="block text-sm font-medium font-bold mb-2">Original Text (Compared)</label>
-                <div className="bg-gray-100 h-60 overflow-auto whitespace-pre-wrap">
-                  {renderDiffStream(diffMap.text1)}
-                </div>
-              </div>
-              <div className="w-1/2">
-                <label className="block text-sm font-medium mb-2">Changed Text (Compared)</label>
-                <div className="bg-gray-100 h-60 overflow-auto whitespace-pre-wrap">
-                  {renderDiffStream(diffMap.text2)}
-                </div>
-              </div>
-            </div>
-          )}
         </div>
-        <div ref={bottomRef} className="bg-purple-700 text-white py-5 text-center">
+
+        <div className="flex gap-4 w-full justify-center mb-2">
+          <Button color="success" onClick={compareTexts}>Compare</Button>
+          <Button color="success" onClick={cleanText}>Clean</Button>
+        </div>
+
+        {isVisible && (
+          <div ref={resultRef} className="flex flex-row gap-4 w-full justify-center mt-2">
+            <div className="w-1/2">
+              <label className="block text-sm font-medium font-bold mb-2">Original Text (Compared)</label>
+              <div className="bg-gray-100 overflow-auto whitespace-pre-wrap p-2">
+                {renderDiffStream(diffMap.text1)}
+              </div>
+            </div>
+            <div className="w-1/2">
+              <label className="block text-sm font-medium mb-2">Changed Text (Compared)</label>
+              <div className="bg-gray-100 overflow-auto whitespace-pre-wrap p-2">
+                {renderDiffStream(diffMap.text2)}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div ref={bottomRef} className="bg-purple-700 text-white py-5 text-center mt-8">
           <Footer />
         </div>
       </div>
