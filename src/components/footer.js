@@ -1,7 +1,7 @@
 import React from 'react';
 import { AcmeLogo } from './navbar.js';
 import { useDisclosure } from "@heroui/react";
-import CustomModal from './customModal.js'; 
+import CustomModal from './all-modals.js'; 
 
 const Footer = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();

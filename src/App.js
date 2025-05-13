@@ -5,18 +5,23 @@ import { Button } from "@heroui/react";
 import AlertBanner from './components/alert-banner.js';
 import NavigationBar from './components/navbar.js';
 import Footer from './components/footer.js';
+import LoadingSpinner, {LoadingCurtain} from './components/loading-spinner.js';
 
 export default function TextCompare() {
   const [text1, setText1] = useState('');
   const [text2, setText2] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const [showCurtain, setShowCurtain] = useState(false);
   const [diffMap, setDiffMap] = useState({ text1: [], text2: [] });
   const bottomRef = useRef(null);
   const resultRef = useRef(null);
-
   const textAreaRef1 = useRef(null);
   const textAreaRef2 = useRef(null);
+
+  // testing purpose
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
   useEffect(() => {
     if (isVisible && resultRef.current) {
@@ -45,6 +50,10 @@ export default function TextCompare() {
       return;
     }
     setIsAlertVisible(false);
+    setIsLoading(true);
+    setShowCurtain(true);
+    // testing purpose
+    await sleep(10000); 
     try {
       const res = await axios.post('http://localhost:8380/text-compare-tool/api/compare', {
         text1,
@@ -54,6 +63,9 @@ export default function TextCompare() {
       setIsVisible(true);
     } catch (error) {
       console.error('Error comparing texts:', error);
+    } finally {
+      setIsLoading(false);
+      setShowCurtain(false);
     }
   };
 
@@ -84,6 +96,9 @@ export default function TextCompare() {
   return (
     <>
       <NavigationBar />
+      <LoadingCurtain show={showCurtain}>
+        {isLoading && (<LoadingSpinner />)}
+      </LoadingCurtain>
       <div className="flex flex-col min-h-screen pt-2 px-3 md:px-5 py-4 bg-white">
         {isAlertVisible && (
           <AlertBanner title="Both text fields are required.....!" color="warning" />

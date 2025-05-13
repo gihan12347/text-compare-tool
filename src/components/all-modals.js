@@ -10,14 +10,16 @@ import {
 
 const CustomModal = ({ isOpen, onOpenChange }) => {
   return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+    <Modal isOpen={isOpen} placement="bottom-center" onOpenChange={onOpenChange}>
       <ModalContent>
         {(onClose) => (
           <>
-            <ModalHeader className="flex flex-col gap-1">Text Compare! – Your Free Online Text Comparison Tool</ModalHeader>
+            <ModalHeader className="flex flex-col gap-1">Online Text Compare Tool</ModalHeader>
             <ModalBody>
               <p>
-                You can compare your two text using this application easily
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
+                risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
+                quam.
               </p>
             </ModalBody>
             <ModalFooter>
