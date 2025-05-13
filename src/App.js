@@ -102,7 +102,7 @@ export default function TextCompare() {
                 setText1(e.target.value);
                 setIsAlertVisible(false);
               }}
-              variant="flat"
+              variant="bordered"
             />
           </div>
           <div className="flex w-full">
@@ -117,7 +117,7 @@ export default function TextCompare() {
                 setText2(e.target.value);
                 setIsAlertVisible(false);
               }}
-              variant="flat"
+              variant="bordered"
             />
           </div>
         </div>
@@ -144,8 +144,8 @@ export default function TextCompare() {
           </div>
         )}
 
-        <div ref={bottomRef} className="bg-purple-700 text-white py-5 text-center mt-8">
-          <Footer />
+        <div ref={bottomRef} className="bg-black text-white py-5 text-center mt-8">
+          <Footer/>
         </div>
       </div>
     </>
