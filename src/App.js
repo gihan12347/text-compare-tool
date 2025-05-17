@@ -21,7 +21,7 @@ export default function TextCompare() {
   const textAreaRef2 = useRef(null);
 
   // testing purpose
-  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  // const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
   useEffect(() => {
     if (isVisible && resultRef.current) {
@@ -53,9 +53,9 @@ export default function TextCompare() {
     setIsLoading(true);
     setShowCurtain(true);
     // testing purpose
-    await sleep(10000); 
+    // await sleep(10000); 
     try {
-      const res = await axios.post('http://localhost:8380/text-compare-tool/api/compare', {
+      const res = await axios.post('https://text-compare-tool-1071342381187.us-central1.run.app/text-compare-tool/api/compare', {
         text1,
         text2,
       });

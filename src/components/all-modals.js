@@ -14,13 +14,18 @@ const CustomModal = ({ isOpen, onOpenChange }) => {
       <ModalContent>
         {(onClose) => (
           <>
-            <ModalHeader className="flex flex-col gap-1">Online Text Compare Tool</ModalHeader>
+            <ModalHeader className="flex flex-col gap-1 text-xl font-bold">
+              Online Text Compare Tool
+            </ModalHeader>
             <ModalBody>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                quam.
-              </p>
+              <h3 className="text-lg font-bold mb-2">Instructions</h3>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                <li>Paste your two texts in the "Original Text" and "Compare Text" sections.</li>
+                <li>Click the <strong>Compare</strong> button and wait for the response.</li>
+                <li><span className="text-red-600">Red</span> highlights show deleted text.</li>
+                <li><span className="text-green-600">Green</span> highlights show newly added text.</li>
+                <li>Use the <strong>Clean</strong> button to clear both input fields.</li>
+              </ol>
             </ModalBody>
             <ModalFooter>
               <Button color="danger" variant="light" onPress={onClose}>
