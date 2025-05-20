@@ -5,7 +5,7 @@ import { Button } from "@heroui/react";
 import AlertBanner from './components/alert-banner.js';
 import NavigationBar from './components/navbar.js';
 import Footer from './components/footer.js';
-import LoadingSpinner, {LoadingCurtain} from './components/loading-spinner.js';
+import LoadingSpinner, { LoadingCurtain } from './components/loading-spinner.js';
 
 export default function TextCompare() {
   const [text1, setText1] = useState('');
@@ -15,14 +15,13 @@ export default function TextCompare() {
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [showCurtain, setShowCurtain] = useState(false);
   const [diffMap, setDiffMap] = useState({ text1: [], text2: [] });
+
   const bottomRef = useRef(null);
   const resultRef = useRef(null);
   const textAreaRef1 = useRef(null);
   const textAreaRef2 = useRef(null);
 
-  // testing purpose
-  // const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
+  // Scroll to result when visible
   useEffect(() => {
     if (isVisible && resultRef.current) {
       resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -125,7 +124,7 @@ export default function TextCompare() {
               ref={textAreaRef2}
               isRequired
               disableAnimation
-              className="w-full whitespace-pre-wrap !border-none !outline-none !ring-0 focus:!outline-none focus:!ring-0 bg-white text-sm min-h-[3rem] p-1"
+              className="w-full whitespace-pre-wrap !border-none !outline-none !ring-0 focus:!outline-none focus:!ring-0 bg-white text-sm min-h-[0.5rem] p-1"
               placeholder="Changed Text"
               value={text2}
               onChange={e => {

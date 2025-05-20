@@ -1,7 +1,7 @@
 import React from 'react';
 import { AcmeLogo } from './navbar.js';
 import { useDisclosure } from "@heroui/react";
-import CustomModal from './all-modals.js'; 
+import AboutModal from './all-modals.js'; 
 
 const Footer = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -21,7 +21,7 @@ const Footer = () => {
           >
             About
           </button>
-          <CustomModal isOpen={isOpen} onOpenChange={onOpenChange} />
+          <AboutModal isOpen={isOpen} onOpenChange={onOpenChange} />
             <a href="/feedback" className="text-blue-400 hover:underline">Feedback</a>
             <a href="/privacy-policy" className="text-blue-400 hover:underline">Privacy Policy</a>
           </div>
