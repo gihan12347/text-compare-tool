@@ -16,7 +16,7 @@ const AboutModal = ({ isOpen, onOpenChange }) => {
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1 text-xl font-bold bg-black text-white">
-              Online Text Compare Tool
+              About the text compare tool
             </ModalHeader>
             <ModalBody>
               <h3 className="text-lg font-bold mb-2">Instructions</h3>
@@ -64,7 +64,7 @@ export const FeedbackModal =  ({ isOpen, onOpenChange }) => {
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1 text-xl font-bold bg-black text-white">
-              Online Text Compare Tool
+              Submit your feedbacks
             </ModalHeader>
             <ModalBody>
               <div className="p-2 rounded-b-lg">
