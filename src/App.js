@@ -15,7 +15,6 @@ export default function TextCompare() {
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [showCurtain, setShowCurtain] = useState(false);
   const [diffMap, setDiffMap] = useState({ text1: [], text2: [] });
-
   const bottomRef = useRef(null);
   const resultRef = useRef(null);
   const textAreaRef1 = useRef(null);

@@ -24,7 +24,7 @@ export default function NavigationBar() {
     <Navbar className="bg-black text-white justify-between px-6">
       <div className="flex items-center gap-2">
         <AcmeLogo />
-        <p className="font-bold text-white text-base sm:text-lg">Text Compare Tool</p>
+        <p className="font-bold text-white text-base sm:text-lg">Online Text Compare Tool</p>
       </div>
       <div className="hidden sm:flex items-center gap-4">
         {/* Add optional nav items here */}
