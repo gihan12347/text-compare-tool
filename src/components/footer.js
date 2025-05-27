@@ -27,6 +27,7 @@ const Footer = () => {
             <AcmeLogo />
           </div>
           <div className="flex gap-4 text-sm">
+            <a href="/" className="text-blue-400 hover:underline">Home</a>
             <button onClick={onOpenAboutModal} className="text-blue-400 hover:underline">
               About
             </button>

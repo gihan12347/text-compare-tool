@@ -40,7 +40,7 @@ const AboutModal = ({ isOpen, onOpenChange }) => {
   );
 };
 
-export const FeedbackModal =  ({ isOpen, onOpenChange }) => {
+export const FeedbackModal = ({ isOpen, onOpenChange }) => {
   const [feedback, seFeedback] = useState('');
   const [isAlertVisible, setIsAlertVisible] = useState(false);
 
@@ -50,50 +50,59 @@ export const FeedbackModal =  ({ isOpen, onOpenChange }) => {
       return;
     }
     setIsAlertVisible(false);
-    console.log('submit feed back :::::::::: '+ feedback);    
-  }
+    console.log('submit feed back :::::::::: ' + feedback);
+  };
 
   const clearModal = () => {
     setIsAlertVisible(false);
-    seFeedback("");   
+    seFeedback('');
   };
 
   return (
     <Modal isOpen={isOpen} placement="bottom-center" onOpenChange={onOpenChange}>
-      <ModalContent>
+      <ModalContent className="w-[340px] h-[220px]">
         {(onClose) => (
           <>
-            <ModalHeader className="flex flex-col gap-1 text-xl font-bold bg-black text-white">
-              Submit your feedbacks
+            <ModalHeader className="flex flex-col gap-1 text-lg font-bold bg-black text-white py-2">
+              Submit Feedback
             </ModalHeader>
-            <ModalBody>
-              <div className="p-2 rounded-b-lg">
+            <ModalBody className="p-2 text-sm">
+              <div className="rounded-b-lg">
                 {isAlertVisible && (
                   <AlertBanner title="Feedback can't be empty.....!" color="warning" />
                 )}
-                <label htmlFor="feedback" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="feedback"
+                  className="block text-xs font-medium text-gray-700 mb-1"
+                >
                   Your Feedback
                 </label>
                 <input
                   id="feedback"
-                  rows="2"
-                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-[40px]"
                   placeholder="Let us know your thoughts..."
                   value={feedback}
-                  onChange={e => {
+                  onChange={(e) => {
                     seFeedback(e.target.value);
                   }}
                 />
                 <button
                   type="submit"
-                  className="mt-3 px-4 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition"
-                  onClick={submitFeedback}>
-                  Submit Feedback
+                  className="mt-2 px-3 py-1.5 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition text-sm"
+                  onClick={submitFeedback}
+                >
+                  Submit
                 </button>
               </div>
             </ModalBody>
-            <ModalFooter>
-              <Button color="danger" variant="light" onClick={clearModal} onPress={onClose}>
+            <ModalFooter className="p-1">
+              <Button
+                color="danger"
+                variant="light"
+                onClick={clearModal}
+                onPress={onClose}
+                className="text-sm"
+              >
                 Close
               </Button>
             </ModalFooter>
