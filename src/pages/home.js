@@ -99,6 +99,7 @@ export default function TextCompare() {
         <meta property="og:title" content="Online Text Compare Tool" />
         <meta property="og:description" content="Free online tool to find differences between two blocks of text." />
         <meta property="og:url" content="https://onlinetextcomparetool.netlify.app/" />
+        <meta name="google-site-verification" content="google0455794dc2739e75.html" />
       </Helmet>
       <NavigationBar />
       <LoadingCurtain show={showCurtain}>
