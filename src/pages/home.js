@@ -6,6 +6,7 @@ import AlertBanner from '../components/alert-banner.js';
 import NavigationBar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import LoadingSpinner, { LoadingCurtain } from '../components/loading-spinner.js';
+import { Helmet } from 'react-helmet';
 
 export default function TextCompare() {
   const [text1, setText1] = useState('');
@@ -91,6 +92,14 @@ export default function TextCompare() {
 
   return (
     <>
+      <Helmet>
+        <title>Online Text Compare Tool - Free & Fast</title>
+        <meta name="description" content="Compare two texts online instantly. Free, secure, and privacy-focused." />
+        <link rel="canonical" href="https://onlinetextcomparetool.netlify.app/" />
+        <meta property="og:title" content="Online Text Compare Tool" />
+        <meta property="og:description" content="Free online tool to find differences between two blocks of text." />
+        <meta property="og:url" content="https://onlinetextcomparetool.netlify.app/" />
+      </Helmet>
       <NavigationBar />
       <LoadingCurtain show={showCurtain}>
         {isLoading && (<LoadingSpinner />)}
