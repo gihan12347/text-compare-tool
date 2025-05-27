@@ -12,7 +12,6 @@ export default function PrivacyPolicy() {
               <title>Privacy Policy - Text Compare Tool</title>
               <meta name="description" content="Read our privacy policy to understand how we handle your data securely and privately." />
               <link rel="canonical" href="https://onlinetextcomparetool.netlify.app/privacy-policy" />
-              <meta name="google-site-verification" content="google0455794dc2739e75.html" />
             </Helmet>
             <NavigationBar/>
             <PrivacyPolicyComponent/>
