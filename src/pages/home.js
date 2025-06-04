@@ -93,12 +93,40 @@ export default function TextCompare() {
   return (
     <>
       <Helmet>
-        <title>Online Text Compare Tool - Free & Fast</title>
-        <meta name="description" content="Compare two texts online instantly. Free, secure, and privacy-focused." />
+        <title>Compare Text Online | Free Diff Checker Tool</title>
+        <meta name="description" content="Quickly compare two text blocks online. Detect text differences instantly. 100% free and private." />
+        <meta name="keywords" content="text compare, diff checker, compare texts, find text difference, text comparison tool" />
         <link rel="canonical" href="https://onlinetextcomparetool.netlify.app/" />
-        <meta property="og:title" content="Online Text Compare Tool" />
-        <meta property="og:description" content="Free online tool to find differences between two blocks of text." />
+
+        <meta property="og:title" content="Compare Text Online | Free Diff Checker Tool" />
+        <meta property="og:description" content="Detect differences between two blocks of text. Fast, free, secure." />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://onlinetextcomparetool.netlify.app/" />
+        <meta property="og:image" content="https://onlinetextcomparetool.netlify.app/og-image.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Compare Text Online | Free Diff Checker Tool" />
+        <meta name="twitter:description" content="Instantly compare and highlight text differences. Free, fast and secure." />
+        <meta name="twitter:image" content="https://onlinetextcomparetool.netlify.app/og-image.png" />
+
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Online Text Compare Tool",
+              "url": "https://onlinetextcomparetool.netlify.app/",
+              "description": "Free online tool to compare two blocks of text and detect changes instantly.",
+              "applicationCategory": "Utility",
+              "operatingSystem": "All",
+              "offers": {
+                "@type": "Offer",
+                "price": "0.00",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <NavigationBar />
       <LoadingCurtain show={showCurtain}>

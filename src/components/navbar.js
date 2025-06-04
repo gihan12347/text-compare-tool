@@ -2,15 +2,15 @@ import { Navbar } from "@heroui/react";
 
 export const AcmeLogo = () => {
   return (
-    <svg
-      fill="none"
-      height="36"
-      width="36"
-      viewBox="0 0 32 32"
-      className="text-white"
-      aria-label="Acme Logo"
-      role="img"
-    >
+      <svg
+        fill="none"
+        height="36"
+        width="36"
+        viewBox="0 0 32 32"
+        className="text-white"
+        aria-label="Acme Logo"
+        role="img"
+      >
       <title>Acme Logo</title>
       <desc>Logo for Online Text Compare Tool</desc>
       <path
