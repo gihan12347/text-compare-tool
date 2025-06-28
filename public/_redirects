@@ -1,9 +1,9 @@
-#1. Redirect www to non-www
-https://www.onlinetextcomparetool.netlify.app/* https://onlinetextcomparetool.netlify.app/:splat 301!
+# 1. Redirect www to non-www
+https://www.freeonlinetextcomparetool.com/* https://freeonlinetextcomparetool.com/:splat 301!
 
-#2. Serve sitemap.xml correctly (force it)
+# 2. Serve sitemap.xml correctly (force it)
 # Use 200! to bypass other rules
 /sitemap.xml  /sitemap.xml  200!
 
-#3. Catch-all for React (must come last)
+# 3. Catch-all for React (must come last)
 /*  /index.html  200

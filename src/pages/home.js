@@ -21,7 +21,6 @@ export default function TextCompare() {
   const textAreaRef1 = useRef(null);
   const textAreaRef2 = useRef(null);
 
-  // Scroll to result when visible
   useEffect(() => {
     if (isVisible && resultRef.current) {
       resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -93,30 +92,53 @@ export default function TextCompare() {
   return (
     <>
       <Helmet>
-        <title>Compare Text Online | Free Diff Checker Tool</title>
-        <meta name="description" content="Quickly compare two text blocks online. Detect text differences instantly. 100% free and private." />
-        <meta name="keywords" content="text compare, diff checker, compare texts, find text difference, text comparison tool" />
-        <link rel="canonical" href="https://onlinetextcomparetool.netlify.app/" />
+        <title>Free Online Text Compare Tool – Fast & Accurate Diff Checker</title>
+        <meta
+          name="description"
+          content="Free online text comparison tool to quickly detect and highlight differences between two text blocks. Secure and easy to use."
+        />
+        <meta
+          name="keywords"
+          content="text compare, text diff, diff checker, compare texts, string comparison, text difference tool"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://freeonlinetextcomparetool.com/" />
 
-        <meta property="og:title" content="Compare Text Online | Free Diff Checker Tool" />
-        <meta property="og:description" content="Detect differences between two blocks of text. Fast, free, secure." />
+        {/* Open Graph */}
+        <meta property="og:title" content="Free Online Text Compare Tool" />
+        <meta
+          property="og:description"
+          content="Easily find and highlight differences between two blocks of text. Try our free online tool now."
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://onlinetextcomparetool.netlify.app/" />
-        <meta property="og:image" content="https://onlinetextcomparetool.netlify.app/og-image.png" />
+        <meta property="og:url" content="https://freeonlinetextcomparetool.com/" />
+        <meta
+          property="og:image"
+          content="https://freeonlinetextcomparetool.com/og-image.png"
+        />
 
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Compare Text Online | Free Diff Checker Tool" />
-        <meta name="twitter:description" content="Instantly compare and highlight text differences. Free, fast and secure." />
-        <meta name="twitter:image" content="https://onlinetextcomparetool.netlify.app/og-image.png" />
+        <meta name="twitter:title" content="Free Online Text Compare Tool" />
+        <meta
+          name="twitter:description"
+          content="Quickly detect text differences online. 100% free, private and fast."
+        />
+        <meta
+          name="twitter:image"
+          content="https://freeonlinetextcomparetool.com/og-image.png"
+        />
 
+        {/* Structured Data */}
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
-              "@type": "WebApplication",
-              "name": "Online Text Compare Tool",
-              "url": "https://onlinetextcomparetool.netlify.app/",
-              "description": "Free online tool to compare two blocks of text and detect changes instantly.",
+              "@type": "SoftwareApplication",
+              "name": "Free Online Text Compare Tool",
+              "url": "https://freeonlinetextcomparetool.com/",
+              "image": "https://freeonlinetextcomparetool.com/og-image.png",
+              "description": "Quickly detect differences between two text blocks online. Free, fast, and secure.",
               "applicationCategory": "Utility",
               "operatingSystem": "All",
               "offers": {
@@ -128,13 +150,16 @@ export default function TextCompare() {
           `}
         </script>
       </Helmet>
+
       <NavigationBar />
+
       <LoadingCurtain show={showCurtain}>
-        {isLoading && (<LoadingSpinner />)}
+        {isLoading && <LoadingSpinner />}
       </LoadingCurtain>
+
       <div className="flex flex-col min-h-screen pt-2 px-3 md:px-5 py-4 bg-white">
         {isAlertVisible && (
-          <AlertBanner title="Both text fields are required.....!" color="warning" />
+          <AlertBanner title="Both text fields are required!" color="warning" />
         )}
 
         <div className="flex flex-row gap-4 w-full items-stretch justify-center mb-4">
@@ -193,7 +218,7 @@ export default function TextCompare() {
         )}
 
         <div ref={bottomRef} className="bg-black text-white py-5 text-center mt-8">
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </>
