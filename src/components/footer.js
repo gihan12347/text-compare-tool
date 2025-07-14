@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronUp, ExternalLink } from "lucide-react";
+import {AboutModal, FeedbackModal} from "./all-modals";
 
 const AcmeLogo = () => {
   return (
@@ -21,42 +22,6 @@ const AcmeLogo = () => {
         fillRule="evenodd"
       />
     </svg>
-  );
-};
-
-const AboutModal = ({ isOpen, onOpenChange }) => {
-  if (!isOpen) return null;
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg max-w-md">
-        <h2 className="text-xl font-bold mb-4">About</h2>
-        <p>This is the about modal content.</p>
-        <button
-          onClick={() => onOpenChange(false)}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const FeedbackModal = ({ isOpen, onOpenChange }) => {
-  if (!isOpen) return null;
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg max-w-md">
-        <h2 className="text-xl font-bold mb-4">Feedback</h2>
-        <p>This is the feedback modal content.</p>
-        <button
-          onClick={() => onOpenChange(false)}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-        >
-          Close
-        </button>
-      </div>
-    </div>
   );
 };
 
