@@ -4,7 +4,9 @@ import { Textarea } from "@heroui/input";
 import AlertBanner from "../components/alert-banner.js";
 import NavigationBar from "../components/navbar.js";
 import Footer from "../components/footer.js";
-import LoadingSpinner, { LoadingCurtain } from "../components/loading-spinner.js";
+import LoadingSpinner, {
+  LoadingCurtain,
+} from "../components/loading-spinner.js";
 import { Helmet } from "react-helmet";
 import AdComponent from "../components/ad-component.js";
 
@@ -75,9 +77,11 @@ export default function TextCompare() {
   const renderDiffStream = (diffArray) =>
     diffArray.map((part, index) => {
       let backgroundColor =
-        part.type === "insert" ? "#008040" :
-        part.type === "delete" ? "#FF0000" :
-        "transparent";
+        part.type === "insert"
+          ? "#008040"
+          : part.type === "delete"
+          ? "#FF0000"
+          : "transparent";
       return (
         <span key={index} style={{ color: "black", backgroundColor }}>
           {part.text}
@@ -99,6 +103,61 @@ export default function TextCompare() {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://freeonlinetextcomparetool.com/" />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Free Online Text Compare Tool – Instant Diff Checker"
+        />
+        <meta
+          property="og:description"
+          content="Compare two texts online for free using our instant text comparison tool. Detect changes, highlight differences, and review edits with ease."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://freeonlinetextcomparetool.com/"
+        />
+        <meta
+          property="og:image"
+          content="https://freeonlinetextcomparetool.com/og-image.png"
+        />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Free Online Text Compare Tool – Instant Diff Checker"
+        />
+        <meta
+          name="twitter:description"
+          content="Easily compare texts online and find differences. Try our 100% free online diff checker now."
+        />
+        <meta
+          name="twitter:image"
+          content="https://freeonlinetextcomparetool.com/og-image.png"
+        />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {`
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Free Online Text Compare Tool",
+        "url": "https://freeonlinetextcomparetool.com/",
+        "image": "https://freeonlinetextcomparetool.com/og-image.png",
+        "description": "Compare two texts online for free. Detect differences with this instant text compare tool and online diff checker.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        }
+      }
+    `}
+        </script>
       </Helmet>
 
       <NavigationBar />
@@ -235,7 +294,10 @@ export default function TextCompare() {
         </div>
 
         {isVisible && (
-          <div ref={resultRef} className="flex flex-col lg:flex-row gap-4 w-full justify-center mt-4">
+          <div
+            ref={resultRef}
+            className="flex flex-col lg:flex-row gap-4 w-full justify-center mt-4"
+          >
             <div className="w-full lg:w-1/2">
               <label className="block text-sm font-medium font-bold mb-2">
                 Original Text (Compared)
@@ -261,7 +323,10 @@ export default function TextCompare() {
           </div>
         )}
 
-        <div ref={bottomRef} className="bg-black text-white py-4 text-center mt-4">
+        <div
+          ref={bottomRef}
+          className="bg-black text-white py-4 text-center mt-4"
+        >
           <Footer />
         </div>
       </div>
