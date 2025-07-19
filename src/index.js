@@ -6,13 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {HeroUIProvider} from "@heroui/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
   <HeroUIProvider>
     <main className="flex flex-col min-h-screen w-full text-foreground">
       <App />
     </main> 
   </HeroUIProvider>
-  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

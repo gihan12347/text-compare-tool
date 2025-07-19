@@ -8,6 +8,7 @@ import LoadingSpinner, {
   LoadingCurtain,
 } from "../components/loading-spinner.js";
 import { Helmet } from "react-helmet";
+import AdComponent from "../components/ad-component.js";
 
 export default function TextCompare() {
   const [text1, setText1] = useState("");
@@ -159,6 +160,7 @@ export default function TextCompare() {
       </Helmet>
 
       <NavigationBar />
+      <AdComponent />
 
       <LoadingCurtain show={showCurtain}>
         {isLoading && <LoadingSpinner />}
@@ -317,6 +319,7 @@ export default function TextCompare() {
           ref={bottomRef}
           className="bg-black text-white py-4 text-center mt-4"
         >
+          <AdComponent />
           <Footer />
         </div>
       </div>
