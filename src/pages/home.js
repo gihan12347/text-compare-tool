@@ -95,25 +95,26 @@ export default function TextCompare() {
   return (
     <>
       <Helmet>
-        <title>
-          Free Online Text Compare Tool – Fast & Accurate Diff Checker
-        </title>
+        <title>Free Online Text Compare Tool – Instant Diff Checker</title>
         <meta
           name="description"
-          content="Free online text comparison tool to quickly detect and highlight differences between two text blocks. Secure and easy to use."
+          content="Use our free online text compare tool to detect and highlight differences. Compare texts easily and instantly with our diff checker online."
         />
         <meta
           name="keywords"
-          content="text compare, text diff, diff checker, compare texts, string comparison, text difference tool"
+          content="free online text compare tool, online text compare tool, text compare tool, compare online, compare text, textcompare, text compare, diff checker online, free text compare tool, free compare tool, online diff checker"
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://freeonlinetextcomparetool.com/" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Free Online Text Compare Tool" />
+        <meta
+          property="og:title"
+          content="Free Online Text Compare Tool – Instant Diff Checker"
+        />
         <meta
           property="og:description"
-          content="Easily find and highlight differences between two blocks of text. Try our free online tool now."
+          content="Compare two texts online for free using our instant text comparison tool. Detect changes, highlight differences, and review edits with ease."
         />
         <meta property="og:type" content="website" />
         <meta
@@ -127,10 +128,13 @@ export default function TextCompare() {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Free Online Text Compare Tool" />
+        <meta
+          name="twitter:title"
+          content="Free Online Text Compare Tool – Instant Diff Checker"
+        />
         <meta
           name="twitter:description"
-          content="Quickly detect text differences online. 100% free, private and fast."
+          content="Easily compare texts online and find differences. Try our 100% free online diff checker now."
         />
         <meta
           name="twitter:image"
@@ -140,22 +144,22 @@ export default function TextCompare() {
         {/* Structured Data */}
         <script type="application/ld+json">
           {`
-            {
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "Free Online Text Compare Tool",
-              "url": "https://freeonlinetextcomparetool.com/",
-              "image": "https://freeonlinetextcomparetool.com/og-image.png",
-              "description": "Quickly detect differences between two text blocks online. Free, fast, and secure.",
-              "applicationCategory": "Utility",
-              "operatingSystem": "All",
-              "offers": {
-                "@type": "Offer",
-                "price": "0.00",
-                "priceCurrency": "USD"
-              }
-            }
-          `}
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Free Online Text Compare Tool",
+        "url": "https://freeonlinetextcomparetool.com/",
+        "image": "https://freeonlinetextcomparetool.com/og-image.png",
+        "description": "Compare two texts online for free. Detect differences with this instant text compare tool and online diff checker.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        }
+      }
+    `}
         </script>
       </Helmet>
 
